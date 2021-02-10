@@ -28,9 +28,13 @@ public class FindElements {
 		
 		if (title.equalsIgnoreCase("Facebook – log in or sign up")) {
 			System.out.println("Test case pass");
-		}else 
+		}
+		else 
 		{
 			System.out.println("Test Case Fail");
+			System.out.println("Test Case Fail1");	
+			
+			
 		}
 	}	
 
