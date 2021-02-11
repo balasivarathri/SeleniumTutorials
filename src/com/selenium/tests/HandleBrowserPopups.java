@@ -1,5 +1,7 @@
 package com.selenium.tests;
 
+import java.util.Iterator;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -19,7 +21,25 @@ public class HandleBrowserPopups {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.get("https://demoqa.com/browser-windows");
 		//Thread.sleep(7000);
-		driver.findElement(By.id("//button[contains(text(),'New Window')]")).click();
+		driver.findElement(By.xpath("//button[contains(text(),'New Window Message')]")).click();
+		Thread.sleep(5000);
+		//To get the parent and child window ids
+		Set <String> handler= driver.getWindowHandles();
+		Iterator <String> it=handler.iterator();
+		String parentwindowid =it.next();
+		System.out.println("Parentwindow Id is:"+ parentwindowid);
+		String childwindowid =it.next();
+		System.out.println("Childwindow Id is:"+ childwindowid);
+		Thread.sleep(8000);
+		//To swith to childwindow
+		driver.switchTo().window(childwindowid);
+		System.out.println("The title of childwindow is:"+driver.getTitle());
+		driver.close();
+		driver.switchTo().window(parentwindowid);
+		System.out.println("The titile of parentwindow is:"+driver.getTitle());
+		
+		
+		
 	}
 
 }
