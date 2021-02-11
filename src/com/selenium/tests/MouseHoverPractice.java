@@ -18,13 +18,12 @@ public class MouseHoverPractice {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		//driver.get("https://google.com/");
 		driver.navigate().to("https://demoqa.com/menu");
-		Thread.sleep(9000);
+		//Thread.sleep(9000);
 		Actions action = new Actions(driver);
 		action.moveToElement(driver.findElement(By.xpath("//a[contains(text(),'Main Item 2')]"))).build().perform();
 		action.moveToElement(driver.findElement(By.xpath("//a[contains(text(),'SUB SUB LIST »')]"))).build().perform();
 		driver.findElement(By.xpath("//a[contains(text(),'Sub Sub Item 2')]")).click();
 		
-
 	}
 
 }
