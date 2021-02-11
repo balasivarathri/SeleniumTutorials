@@ -29,7 +29,7 @@ public class CapureScreenShot {
 		//To Capture Screenshot and store as a file format
 		File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		//To Store in desired location using copy file method
-		FileUtils.copyFile(src, new File("C:\\Users\\User\\Desktop\\Screenshots\\ScreenShot.jpg"));
+		FileUtils.copyFile(src, new File("C:\\Users\\User\\Desktop\\Screenshots\\ScreenShot1.jpg"));
 
 	}
 
