@@ -1,9 +1,14 @@
 package com.selenium.tests;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,7 +16,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class JavaScriptExecutor {
 
 	WebDriver driver;
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 
 		// To Initialize browser
@@ -28,22 +33,30 @@ public class JavaScriptExecutor {
 				driver.get("https://www.facebook.com");
 				driver.findElement(By.id("email")).sendKeys("balasivarathri@gmail.com");
 				driver.findElement(By.id("pass")).sendKeys("9959855206");
-				WebElement lgnbtn= driver.findElement(By.xpath("//button[contains(text(),'Log In')]"));
 				
+				//execute Script ---- to execute java script code
+				WebElement lgnbtn= driver.findElement(By.xpath("//button[contains(text(),'Log In')]"));
+				//To highlight the element
 				flash(lgnbtn, driver);
 				
+				// To highlight the border with red color
+				drawBorder(lgnbtn, driver);
+								
+				//To Capture Screenshot and store as a file format
+				File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+				//To Store in desired location using copy file method
+				FileUtils.copyFile(src, new File("C:\\Users\\User\\Desktop\\Screenshots\\FB.jpg"));
 	}
 
 	public static void flash(WebElement element, WebDriver driver) {
 		JavascriptExecutor js = ((JavascriptExecutor)driver);
 		String bgcolour = element.getCssValue("backgroundColor");
-		for(int i=0; i<10;i++) {
+		for(int i=0; i<50;i++) {
 			changeColor("rgb(0,200,0)",element,driver);
 			changeColor(bgcolour,element,driver);
 		}
 	}
 	public static void changeColor(String color, WebElement element, WebDriver driver) {
-		
 		
 		JavascriptExecutor js = ((JavascriptExecutor)driver);
 		js.executeScript("arguments[0].style.backgroundColor='"+color+"'", element);
@@ -52,5 +65,9 @@ public class JavaScriptExecutor {
 		}catch(InterruptedException e) {
 			
 		}
+	}
+	public static void drawBorder(WebElement element, WebDriver driver) {
+		JavascriptExecutor js = ((JavascriptExecutor)driver);
+		js.executeScript("arguments[0].style.border='9px solid red'", element);
 	}
 }
