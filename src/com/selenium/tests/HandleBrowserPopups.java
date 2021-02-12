@@ -21,8 +21,7 @@ public class HandleBrowserPopups {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.get("https://demoqa.com/browser-windows");
 		//Thread.sleep(7000);
-		driver.findElement(By.xpath("//button[contains(text(),'New Window Message')]")).click();
-		Thread.sleep(5000);
+		driver.findElement(By.xpath("//button[contains(text(),'New Window')]")).click();
 		//To get the parent and child window ids
 		Set <String> handler= driver.getWindowHandles();
 		Iterator <String> it=handler.iterator();
@@ -30,7 +29,6 @@ public class HandleBrowserPopups {
 		System.out.println("Parentwindow Id is:"+ parentwindowid);
 		String childwindowid =it.next();
 		System.out.println("Childwindow Id is:"+ childwindowid);
-		Thread.sleep(8000);
 		//To swith to childwindow
 		driver.switchTo().window(childwindowid);
 		System.out.println("The title of childwindow is:"+driver.getTitle());
