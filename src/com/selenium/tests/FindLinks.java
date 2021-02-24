@@ -48,8 +48,5 @@ public class FindLinks {
 		}
 		driver.close();
 	}	
-	private void Syso() {
-		// TODO Auto-generated method stub
-
-	}
+	
 }
