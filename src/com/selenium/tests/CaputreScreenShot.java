@@ -15,8 +15,7 @@ public class CaputreScreenShot {
 	public static void main(String[] args) throws InterruptedException, IOException {
 
 		// To Initialize browser
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\User\\eclipse-workspace\\SeleniumTutorials\\Browser_LIB\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","C:\\Drivers\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		// To maximize the window
 		driver.manage().window().maximize();

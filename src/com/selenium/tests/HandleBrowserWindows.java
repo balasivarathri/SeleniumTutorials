@@ -8,12 +8,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class HandleBrowserPopups {
+public class HandleBrowserWindows {
 
 	public static void main(String[] args) throws InterruptedException {
 
 		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\User\\eclipse-workspace\\SeleniumTutorials\\Browser_LIB\\chromedriver.exe");
+				"C:\\Drivers\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
@@ -35,7 +35,7 @@ public class HandleBrowserPopups {
 		driver.close();
 		driver.switchTo().window(parentwindowid);
 		System.out.println("The titile of parentwindow is:"+driver.getTitle());
-		
+		driver.manage().window().fullscreen();
 		
 		
 	}

@@ -6,12 +6,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 public class CheckBoxDataTable {
 
 	public static void main(String[] args) throws InterruptedException {
 		
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\eclipse-workspace\\SeleniumTutorials\\Browser_LIB\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Drivers\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
@@ -25,7 +26,6 @@ public class CheckBoxDataTable {
 		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("9989*Bala");
 		driver.findElement(By.xpath("//div[contains(text(),'Login')]")).click();
 	
-		
 		
 		Actions action = new Actions(driver);
 		action.moveToElement(driver.findElement(By.xpath("//div[@id='main-nav']"))).build().perform();
