@@ -16,25 +16,17 @@ public class AllLinks {
 		System.setProperty("webdriver.chrome.driver", "C:\\Drivers\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+		driver.manage().deleteAllCookies();
 		driver.get("https://www.facebook.com/r.php");
-
-		/*
-		 * List<WebElement> links = driver.findElements(By.cssSelector("a"));
-		 * System.out.println(links.size());
-		 * 
-		 * for(WebElement link: links) { System.out.println(link.getText());
-		 * System.out.println(link.getAttribute("id")); }
-		 */
-		Select dropDown = new Select(driver.findElement(By.id("year")));
-		List<WebElement> dd = dropDown.getOptions();
-		System.out.println(dd.size());
-
-		for (int i = 0; i < dd.size(); i++) {
-			System.out.println(dd.get(i).getText());
-		}
+		
+		Select dropDown = new Select(driver.findElement(By.id("day")));
+		List<WebElement> list = dropDown.getOptions();
+		System.out.println(list.size());
+		 for(int i=0;i<list.size();i++) {
+			 System.out.println(list.get(i).getText());
+		 }
 
 	}
 
